@@ -32,6 +32,11 @@ func main() {
 	log.Dashes = []vg.Length{vg.Points(4), vg.Points(5)}
 	log.Width = vg.Points(2)
 
+	// Plot a linearithmic: O(n*log n) function
+	linearithmic := plotter.NewFunction(func(x float64) float64 { return x * math.Log(x) })
+	linearithmic.Dashes = []vg.Length{vg.Points(2), vg.Points(6)}
+	linearithmic.Width = vg.Points(4)
+
 	//	// Plot a quadratic: O(n^2) function
 	quad := plotter.NewFunction(func(x float64) float64 { return x * x })
 	quad.Dashes = []vg.Length{vg.Points(1), vg.Points(8)}
@@ -42,12 +47,13 @@ func main() {
 	exp.Width = vg.Points(1)
 	//
 	// Add the functions and their legend entries.
-	p.Add(constant, log, linear, quad, exp)
+	p.Add(constant, log, linear, linearithmic, quad, exp)
 	p.Legend.Add("Constant: O(1)", constant)
 	p.Legend.Add("Log Linear: O(log n)", log)
-	p.Legend.Add("Log: (n)", linear)
-	p.Legend.Add("Quadratic: x^2", quad)
-	p.Legend.Add("Exponential: 2^x", exp)
+	p.Legend.Add("Linear: O(n)", linear)
+	p.Legend.Add("Linearithmic: O(n*log n)", linearithmic)
+	p.Legend.Add("Quadratic: O(x^2)", quad)
+	p.Legend.Add("Exponential: O(2^x)", exp)
 	p.Legend.YOffs = 100
 	p.Legend.Color = color.Black
 	p.Legend.ThumbnailWidth = 0.5 * vg.Inch
