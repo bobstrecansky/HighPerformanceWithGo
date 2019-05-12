@@ -1,0 +1,19 @@
+goos: linux
+goarch: amd64
+BenchmarkJSON     	 2000000	       707 ns/op
+BenchmarkJSON     	 2000000	       710 ns/op
+BenchmarkJSON     	 2000000	       708 ns/op
+BenchmarkJSON     	 2000000	       711 ns/op
+BenchmarkJSON     	 2000000	       711 ns/op
+BenchmarkJSON-2   	 2000000	       701 ns/op
+BenchmarkJSON-2   	 2000000	       711 ns/op
+BenchmarkJSON-2   	 2000000	       720 ns/op
+BenchmarkJSON-2   	 2000000	       700 ns/op
+BenchmarkJSON-2   	 2000000	       707 ns/op
+BenchmarkJSON-4   	 2000000	       715 ns/op
+BenchmarkJSON-4   	 2000000	       705 ns/op
+BenchmarkJSON-4   	 2000000	       722 ns/op
+BenchmarkJSON-4   	 2000000	       721 ns/op
+BenchmarkJSON-4   	 2000000	       708 ns/op
+PASS
+ok  	_/home/bob/git/HighPerformanceWithGo/2-data-structures-and-algorithms/Benchstat-comparison/single	32.255s

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Performance Result Comparison</title>
+<style>
+.benchstat { border-collapse: collapse; }
+.benchstat th:nth-child(1) { text-align: left; }
+.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }
+.benchstat tr:not(.configs) th { border-top: 1px solid #666; border-bottom: 1px solid #ccc; }
+.benchstat .nodelta { text-align: center !important; }
+.benchstat .better td.delta { font-weight: bold; }
+.benchstat .worse td.delta { font-weight: bold; color: #c00; }
+</style>
+</head>
+<body>
+
+<table class='benchstat oldnew'>
+<tr class='configs'><th><th>../single/single.txt<th>multi.txt
+
+
+<tbody>
+<tr><th><th colspan='2' class='metric'>time/op<th>delta
+<tr class='worse'><td>JSON-2<td>708ns ± 2%<td>1703ns ± 1%<td class='delta'>&#43;140.58%<td class='note'>(p=0.008 n=5&#43;5)
+<tr class='worse'><td>JSON<td>709ns ± 0%<td>1711ns ± 1%<td class='delta'>&#43;141.19%<td class='note'>(p=0.008 n=5&#43;5)
+<tr class='worse'><td>JSON-4<td>714ns ± 1%<td>1741ns ± 1%<td class='delta'>&#43;143.77%<td class='note'>(p=0.008 n=5&#43;5)
+<tr><td>&nbsp;
+</tbody>
+
+</table>
+</body>
+</html>
