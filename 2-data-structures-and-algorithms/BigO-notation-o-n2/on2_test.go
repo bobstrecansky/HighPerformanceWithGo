@@ -2,13 +2,15 @@ package on2
 
 import "testing"
 
-func benchmarkQuadraticTimings(x, y int, b *testing.B) {
+func benchmarkBubbleSort(x int, b *testing.B) {
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
-		quadraticTimings(x, y)
+		BubbleSort(x)
 	}
 }
 
-func BenchmarkQuadraticTimings10(b *testing.B)   { benchmarkQuadraticTimings(10, 10, b) }
-func BenchmarkQuadraticTimings100(b *testing.B)  { benchmarkQuadraticTimings(100, 100, b) }
-func BenchmarkQuadraticTimings1000(b *testing.B) { benchmarkQuadraticTimings(1000, 1000, b) }
+func BenchmarkBubbleSort10(b *testing.B)     { benchmarkBubbleSort(10, b) }
+func BenchmarkBubbleSort100(b *testing.B)    { benchmarkBubbleSort(100, b) }
+func BenchmarkBubbleSort1000(b *testing.B)   { benchmarkBubbleSort(1000, b) }
+func BenchmarkBubbleSort10000(b *testing.B)  { benchmarkBubbleSort(10000, b) }
+func BenchmarkBubbleSort100000(b *testing.B) { benchmarkBubbleSort(100000, b) }
