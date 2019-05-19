@@ -52,8 +52,8 @@ func main() {
 	p.Legend.Add("Log Linear: O(log n)", log)
 	p.Legend.Add("Linear: O(n)", linear)
 	p.Legend.Add("Linearithmic: O(n*log n)", linearithmic)
-	p.Legend.Add("Quadratic: O(x^2)", quad)
-	p.Legend.Add("Exponential: O(2^x)", exp)
+	p.Legend.Add("Quadratic: O(n^2)", quad)
+	p.Legend.Add("Exponential: O(2^n)", exp)
 	p.Legend.YOffs = 100
 	p.Legend.Color = color.Black
 	p.Legend.ThumbnailWidth = 0.5 * vg.Inch
