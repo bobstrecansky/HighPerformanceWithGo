@@ -5,26 +5,30 @@ import (
 	"sort"
 )
 
-func sortInts(intArray []int, done chan bool) {
-	sort.Ints(intArray)
-	fmt.Printf("Sorted Array: %v\n", intArray)
-	done <- true
+func checkForSortedInts(intArray []int, done chan bool) {
+	result := sort.IntsAreSorted(intArray)
+	fmt.Println(intArray, "sorted: ", result)
+	done <- false
 }
 
-func searchInts(intArray []int, search int, done chan bool) {
-	sorted := sort.Search(len(intArray), func(sorted int) bool { return intArray[sorted] >= search })
-	if sorted < len(intArray) && intArray[sorted] == search {
-		fmt.Printf("Search number: %d\nFound in position: %d\n", search, sorted)
+func searchInts(intArray []int, searchNumber int, done chan bool) {
+	sorted := sort.SearchInts(intArray, searchNumber)
+	if sorted < len(intArray) {
+		fmt.Printf("Found element %d at array position %d\n", searchNumber, sorted)
+	} else {
+		fmt.Printf("Element %d not found in array %v\n", searchNumber, intArray)
 	}
 	done <- true
 }
 func main() {
 	ch := make(chan bool)
 	go func() {
-		s := []int{2, 11, 3, 34, 5, 0, 16} // unsorted
-		fmt.Printf("Unsorted Array: %v\n", s)
-		sortInts(s, ch)
-		searchInts(s, 5, ch)
+		intArray := []int{2, 11, 3, 34, 5, 0, 16} // unsorted
+		searchNumber := 16
+		fmt.Printf("Unsorted Array: %v\n", intArray)
+		checkForSortedInts(intArray, ch)
+		fmt.Printf("Sorted Array %v\n", intArray)
+		searchInts(intArray, searchNumber, ch)
 	}()
 	<-ch
 }

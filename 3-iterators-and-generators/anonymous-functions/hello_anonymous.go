@@ -2,15 +2,15 @@ package main
 
 import "fmt"
 
-func HelloGo() {
+func helloGo() {
 	fmt.Println("Hello Go from a Function")
 
 }
 
 func main() {
 
-	HelloGo()
+	helloGo()
 	func() { fmt.Println("Hello Go from an Anonymous Function") }()
-	var hello func() = func() { fmt.Println("Hello Go from an Anonymous Function Assigned to a Variable") }
+	var hello func() = func() { fmt.Println("Hello Go from an Anonymous Function") }
 	hello()
 }
