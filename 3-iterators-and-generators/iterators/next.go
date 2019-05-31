@@ -1,8 +1,6 @@
-package main
+package iterators
 
-import "fmt"
-
-const top = 100
+var sumNext int
 
 type CounterStruct struct {
 	err error
@@ -35,13 +33,9 @@ func (i *CounterStruct) Value() int {
 	return i.cur
 }
 
-func nextLoop(top int) {
+func NextLoop(top int) {
 	nextIterator := NewCounterIterator(top)
 	for nextIterator.Next() {
-		fmt.Println(nextIterator.Value())
+		//fmt.Print(nextIterator.Value())
 	}
-}
-
-func main() {
-	nextLoop(top)
 }

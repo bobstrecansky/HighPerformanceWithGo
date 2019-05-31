@@ -1,12 +1,10 @@
-package main
+package iterators
 
-import "fmt"
+var sumCallback int
 
-const top = 100
-
-func main() {
-	err := callbackLoop(top, func(n int) error {
-		fmt.Println(n)
+func CallbackLoop(top int) {
+	err := callbackLoopIterator(top, func(n int) error {
+		sumCallback += n
 		return nil
 	})
 	if err != nil {
@@ -14,7 +12,7 @@ func main() {
 	}
 }
 
-func callbackLoop(top int, callback func(n int) error) error {
+func callbackLoopIterator(top int, callback func(n int) error) error {
 	for i := 0; i < top; i++ {
 		err := callback(i)
 		if err != nil {

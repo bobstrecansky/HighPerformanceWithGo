@@ -1,15 +1,10 @@
-package main
+package iterators
 
-import "fmt"
+var sumLoops int
 
-const n = 100
-
-func main() {
-	simpleLoop(n)
-}
-
-func simpleLoop(n int) {
-	for i := 0; i < 100; i++ {
-		fmt.Println(i)
+func simpleLoop(n int) int {
+	for i := 0; i < n; i++ {
+		sumLoops += i
 	}
+	return sumLoops
 }
