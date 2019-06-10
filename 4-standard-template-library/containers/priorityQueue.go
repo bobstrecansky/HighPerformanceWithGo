@@ -8,7 +8,7 @@ import (
 
 func main() {
 	priorityQueue := pq.New()
-	priorityQueue.Insert("java", 3)
+	priorityQueue.Insert("java", 1)
 	priorityQueue.Insert("golang", 1)
 	priorityQueue.Insert("php", 2)
 	priorityQueue.UpdatePriority("java", 3)

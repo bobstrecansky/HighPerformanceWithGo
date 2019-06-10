@@ -2,5 +2,9 @@ github.com/golang-collections/collections v0.0.0-20130729185459-604e922904d3 h1:
 github.com/golang-collections/collections v0.0.0-20130729185459-604e922904d3/go.mod h1:nPpo7qLxd6XL3hWJG/O60sR8ZKfMCiIoNap5GvD12KU=
 github.com/jupp0r/go-priority-queue v0.0.0-20160601094913-ab1073853bde h1:+5PMaaQtDUwOcJIUlmX89P0J3iwTvErTmyn5WghzXAQ=
 github.com/jupp0r/go-priority-queue v0.0.0-20160601094913-ab1073853bde/go.mod h1:RDgD/dfPmIwFH0qdUOjw71HjtWg56CtyLIoHL+R1wJw=
+github.com/jwangsadinata/go-multimap v0.0.0-20180421172204-599609688a40 h1:ggGAsBg7DIxLkIyfw1MQT4z1jrV5Evqw4qMFCK6Lo7E=
+github.com/jwangsadinata/go-multimap v0.0.0-20180421172204-599609688a40/go.mod h1:t/4uK4L5ivqPnzFJT9RP7a1218JCdhBelrzqpjnt1uQ=
+github.com/soniakeys/multiset v1.0.0 h1:N1VYrXwI9fIS6zSgfLeRr8GW5GlOweT34pTM0wyeIhU=
+github.com/soniakeys/multiset v1.0.0/go.mod h1:HkKZF43sIsZF4gD76H9Injodzzgf/rU+bfOb3PvRvbg=
 gopkg.in/karalabe/cookiejar.v1 v1.0.0-20141109175019-e1490cae028c h1:4GYkPhjcYLPrPAnoxHVQlH/xcXtWN8pEgqBnHrPAs8c=
 gopkg.in/karalabe/cookiejar.v1 v1.0.0-20141109175019-e1490cae028c/go.mod h1:xd7qpr5uPMNy4hsRJ5JEBXA8tJjTFmUI1soCjlCIgAE=
