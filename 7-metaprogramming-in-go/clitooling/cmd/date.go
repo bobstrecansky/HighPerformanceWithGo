@@ -39,6 +39,7 @@ func init() {
 	viper.SetDefault("license", "Apache-2.0")
 	DateCommand.PersistentFlags().BoolP("verbose", "v", false, "Date Command Verbose")
 	DateCommand.PersistentFlags().StringP("author", "a", "bob", "Date Command Author")
+
 	viper.BindPFlag("author", DateCommand.PersistentFlags().Lookup("author"))
 	viper.BindPFlag("verbose", DateCommand.PersistentFlags().Lookup("verbose"))
 
