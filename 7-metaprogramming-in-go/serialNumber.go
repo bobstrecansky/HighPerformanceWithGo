@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-var SerialNumber = "unlicenced"
+var SerialNumber = "unlicensed"
 
 func main() {
 	if SerialNumber == "ABC123" {

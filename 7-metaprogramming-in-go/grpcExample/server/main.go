@@ -17,13 +17,13 @@ func (s *userInfoServer) PrintUserInfo(ctx context.Context, in *pb.UserInfoReque
 }
 
 func main() {
-	lis, err := net.Listen("tcp", ":50051")
+	l, err := net.Listen("tcp", ":50051")
 	if err != nil {
-		log.Fatalf("Failed to listen %v", err)
+		log.Fatalf("Failed to lten %v", err)
 	}
 	s := grpc.NewServer()
 	pb.RegisterUserInfoServer(s, &userInfoServer{})
-	if err := s.Serve(lis); err != nil {
+	if err := s.Serve(l); err != nil {
 		log.Fatalf("Couldn't create Server: %v", err)
 	}
 }
