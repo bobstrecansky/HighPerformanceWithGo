@@ -2,17 +2,11 @@ package main
 
 import (
 	"fmt"
-	"io"
-	"net/http"
 	"runtime"
 	"time"
 )
 
 func main() {
-	Handler := func(w http.ResponseWriter, req *http.Request) {
-		io.WriteString(w, "Memory Management Test")
-	}
-
 	go func() {
 		for {
 			var r runtime.MemStats
@@ -28,6 +22,6 @@ func main() {
 		}
 	}()
 
-	http.HandleFunc("/", Handler)
-	http.ListenAndServe(":1234", nil)
+	fmt.Println("Hello Gophers")
+	time.Sleep(11 * time.Second)
 }
