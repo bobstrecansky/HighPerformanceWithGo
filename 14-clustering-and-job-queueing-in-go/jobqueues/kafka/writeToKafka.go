@@ -9,10 +9,13 @@ import (
 )
 
 func main() {
-	topic := "go-example"
-	partition := 0
+	var topic = "go-example"
+	var partition = 0
+	var connectionType = "tcp"
+	var connectionHost = "0.0.0.0"
+	var connectionPort = ":9092"
 
-	connection, _ := kafka.DialLeader(context.Background(), "tcp", "0.0.0.0:9092", topic, partition)
+	connection, _ := kafka.DialLeader(context.Background(), connectionType, connectionHost+connectionPort, topic, partition)
 	connection.SetWriteDeadline(time.Now().Add(1 * time.Second))
 
 	for i := 0; i < 10; i++ {

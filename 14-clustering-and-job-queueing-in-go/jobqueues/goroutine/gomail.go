@@ -11,22 +11,29 @@ func main() {
 
 	log.Printf("Doing Work")
 	log.Printf("Sending Emails!")
-	go sendMail("RECIPIENT")
+	go sendMail()
 	time.Sleep(time.Second)
 	log.Printf("Done Sending Emails!")
 }
 
-func sendMail(recipient string) {
-	m := gomail.NewMessage()
-	m.SetHeader("From", "EMAIL_SENDER")
-	m.SetHeader("To", recipient)
-	m.SetHeader("Subject", "Hello!")
-	m.SetBody("text/html", "Hello <b>"+recipient+"</b> From Goroutine!")
+func sendMail() {
+	var sender = "USERNAME@gmail.com"
+	var recipient = "RECIPIENT@gmail.com"
+	var username = "USERNAME@gmail.com"
+	var password = "PASSWORD"
+	var host = "smtp.gmail.com"
+	var port = 587
 
-	d := gomail.NewDialer("smtp.gmail.com", 587, "GMAIL_USERNAME", "GMAIL_PASSWORD")
+	email := gomail.NewMessage()
+	email.SetHeader("From", sender)
+	email.SetHeader("To", recipient)
+	email.SetHeader("Subject", "Test Email From Goroutine")
+	email.SetBody("text/plain", "This email is being sent from a Goroutine!")
 
-	// Send the email to Bob, Cora and Dan.
-	if err := d.DialAndSend(m); err != nil {
+	dialer := gomail.NewDialer(host, port, username, password)
+	err := dialer.DialAndSend(email)
+	if err != nil {
+		log.Println("Could not send email")
 		panic(err)
 	}
 }

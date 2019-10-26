@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"math/rand"
+	"time"
 
 	"github.com/muesli/clusters"
 	"github.com/muesli/kmeans"
@@ -32,7 +33,7 @@ func main() {
 	var clusterSize = 3
 	var datasetSize = 30
 	var thresholdSize = 0.01
-
+	rand.Seed(time.Now().UnixNano())
 	dataset := createDataset(datasetSize)
 	fmt.Println("Dataset: ", dataset)
 

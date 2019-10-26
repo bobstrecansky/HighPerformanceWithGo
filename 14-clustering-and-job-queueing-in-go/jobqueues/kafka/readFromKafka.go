@@ -11,10 +11,13 @@ import (
 
 func main() {
 
-	topic := "go-example"
-	partition := 0
+	var topic = "go-example"
+	var partition = 0
+	var connectionType = "tcp"
+	var connectionHost = "0.0.0.0"
+	var connectionPort = ":9092"
 
-	connection, err := kafka.DialLeader(context.Background(), "tcp", "0.0.0.0:9092", topic, partition)
+	connection, err := kafka.DialLeader(context.Background(), connectionType, connectionHost+connectionPort, topic, partition)
 	if err != nil {
 		log.Printf("Could not create a Kafka Connection")
 	}
