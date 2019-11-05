@@ -1,0 +1,4 @@
+FROM golang:latest
+COPY promExporter .
+EXPOSE 1234
+CMD ["./promExporter"]

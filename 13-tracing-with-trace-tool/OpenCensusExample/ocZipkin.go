@@ -17,9 +17,9 @@ import (
 func tracingServer() {
 	l, err := openzipkin.NewEndpoint("oc-zipkin", "192.168.1.5:5454")
 	if err != nil {
-		log.Fatalf("Failed to create the local zipkinEndpoint: %v", err)
+		log.Fatalf("Couldn't create zipkinEndpoint: %v", err)
 	}
-	r := zipkinHTTP.NewReporter("http://localhost:9411/api/v2/spans")
+	r := zipkinHTTP.NewReporter("http://0.0.0.0:9411/api/v2/spans")
 	z := zipkin.NewExporter(r, l)
 	trace.RegisterExporter(z)
 	trace.ApplyConfig(trace.Config{DefaultSampler: trace.AlwaysSample()})
@@ -31,14 +31,14 @@ func makeRequest(ctx context.Context, url string) string {
 	defer span.End()
 	res, _ := http.Get(url)
 	defer res.Body.Close()
-	time.Sleep(80 * time.Millisecond)
+	time.Sleep(100 * time.Millisecond)
 	log.Printf("URL Response : %s", res.Status)
 
 	span.Annotate([]trace.Attribute{
 		trace.StringAttribute("URL Response Code", res.Status),
 	}, "HTTP Response Status Code:"+res.Status)
 
-	time.Sleep(20 * time.Millisecond)
+	time.Sleep(50 * time.Millisecond)
 	return res.Status
 }
 
