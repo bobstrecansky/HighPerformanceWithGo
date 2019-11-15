@@ -1,0 +1,9 @@
+global:
+  scrape_interval:     10s
+  evaluation_interval: 10s
+  external_labels:
+      monitor: 'metrics-example'
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['192.168.1.64:1234']

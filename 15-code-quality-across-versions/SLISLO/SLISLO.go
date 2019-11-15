@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"math/rand"
 	"net/http"
 	"time"
@@ -13,7 +14,7 @@ func main() {
 
 	saturation := prometheus.NewGauge(prometheus.GaugeOpts{
 		Name: "saturation",
-		Help: "A gauge of the saturation golden singnal",
+		Help: "A gauge of the saturation golden signal",
 	})
 
 	requests := prometheus.NewCounterVec(
@@ -28,14 +29,13 @@ func main() {
 		prometheus.HistogramOpts{
 			Name:    "latency",
 			Help:    "A histogram of latencies for the latency golden signal",
-			Buckets: []float64{.25, .5, 1, 2.5, 5, 10},
+			Buckets: []float64{.025, .05, 0.1, 0.25, 0.5, 0.75},
 		},
 		[]string{"handler", "method"},
 	)
 
 	goldenSignalHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		sleepTime := rand.Intn(100)
-		//sleepTime := rand.Intn(10000)
+		sleepTime := rand.Intn(1000)
 		time.Sleep(time.Duration(sleepTime) * time.Millisecond)
 
 		if sleepTime%4 == 0 {
@@ -45,6 +45,7 @@ func main() {
 		} else {
 			w.Write([]byte("Golden Signal Handler"))
 		}
+		log.Println("Request Completed")
 	})
 
 	goldenSignalChain := promhttp.InstrumentHandlerInFlight(saturation,
