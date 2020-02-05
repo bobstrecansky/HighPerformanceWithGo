@@ -5,7 +5,7 @@ import "fmt"
 //#cgo CFLAGS: -I.
 //#cgo LDFLAGS: -L. -ltest
 //#cgo LDFLAGS: -lcudart
-//#include <test.h>
+//#include <cuda_add.h>
 import "C"
 
 func main() {
