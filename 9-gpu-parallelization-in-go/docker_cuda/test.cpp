@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 
-const long int ELEMENTS = 1<<25;
+const long int ELEMENTS = 1<<20;
 
 void multiply(int j, float *a, float *b, float *c)
 {
@@ -19,8 +19,8 @@ float *c = new float[ELEMENTS];
 
 for(int i = 0; i < ELEMENTS; i++)
 {
-    a[i] = 1.0; //rand() % 10;
-    b[i] = 2.0; //rand() % 10;
+    a[i] = rand() % 10;
+    b[i] = rand() % 10;
 
 }
 
