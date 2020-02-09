@@ -14,7 +14,7 @@ import "C"
 func main() {
 	fmt.Printf("Invoking cuda library...\n")
 	start := time.Now()
-	fmt.Println("Done ", C.cuda_multiply())
+	C.cuda_multiply()
 	elapsed := time.Since(start)
-	fmt.Println("C Execution took", elapsed)
+	fmt.Println("\nCuda Execution took", elapsed)
 }

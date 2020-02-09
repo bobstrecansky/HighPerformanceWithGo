@@ -5,4 +5,4 @@ RUN apt-get install -y golang
 COPY . /tmp
 WORKDIR /tmp
 RUN make
-RUN go run cuda_multiply.go
+ENTRYPOINT ["/usr/bin/go", "run", "cuda_multiply.go"]
