@@ -5,8 +5,8 @@
 const int ELEMENTS = 1 << 20;
 
 __global__ void multiply(int j, float * a, float * b, float * c) {
-  int index = threadIdx.x;
-  int stride = blockDim.x;
+  int index = threadIdx.x * blockDim.x + threadIdx.x;
+  int stride = blockDim.x * gridDim.x;
 
   for (int i = index; i < j; i += stride)
     c[i] = a[i] * b[i];

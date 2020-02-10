@@ -36,6 +36,5 @@ func (i *CounterStruct) Value() int {
 func NextLoop(top int) {
 	nextIterator := NewCounterIterator(top)
 	for nextIterator.Next() {
-		//fmt.Print(nextIterator.Value())
 	}
 }

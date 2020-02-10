@@ -5,10 +5,10 @@ import (
 	"sort"
 )
 
-func checkForSortedInts(intArray []int, done chan bool) {
-	result := sort.IntsAreSorted(intArray)
-	fmt.Println(intArray, "sorted: ", result)
-	done <- false
+func sortInts(intArray []int, done chan bool) {
+	sort.Ints(intArray)
+	fmt.Printf("Sorted Array: %v\n", intArray)
+	done <- true
 }
 
 func searchInts(intArray []int, searchNumber int, done chan bool) {
@@ -23,12 +23,11 @@ func searchInts(intArray []int, searchNumber int, done chan bool) {
 func main() {
 	ch := make(chan bool)
 	go func() {
-		intArray := []int{2, 11, 3, 34, 5, 0, 16} // unsorted
+		s := []int{2, 11, 3, 34, 5, 0, 16} // unsorted
+		fmt.Println("Unsorted Array: ", s)
 		searchNumber := 16
-		fmt.Printf("Unsorted Array: %v\n", intArray)
-		checkForSortedInts(intArray, ch)
-		fmt.Printf("Sorted Array %v\n", intArray)
-		searchInts(intArray, searchNumber, ch)
+		sortInts(s, ch)
+		searchInts(s, searchNumber, ch)
 	}()
 	<-ch
 }

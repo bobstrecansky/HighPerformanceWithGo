@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	intArray := []int{2, 11, 3, 34, 5, 0, 16} // unsorted
+	intArray := []int{0, 2, 3, 5, 11, 16, 34}
 	searchNumber := 34
 	sorted := sort.SearchInts(intArray, searchNumber)
 	if sorted < len(intArray) {

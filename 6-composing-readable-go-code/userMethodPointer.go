@@ -32,7 +32,8 @@ func main() {
 
 	userExample.updateEmail("bob.strecansky@example.com")
 	userExample.printEmail()
-	(&userExample).updatePhone("000-000-0000")
+	(userExample).updatePhone("000-000-0000")
 	fmt.Println("Updated User Email: ", userExample.email)
+	fmt.Println("Updated User Phone: ", userExample.phone)
 
 }
