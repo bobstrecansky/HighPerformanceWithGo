@@ -1,0 +1,15 @@
+syntax = "proto3";
+package userinfo;
+
+service UserInfo {
+  rpc PrintUserInfo (UserInfoRequest) returns (UserInfoResponse) {}
+}
+
+message UserInfoRequest {
+  string user = 1;
+  string email = 2;
+}
+
+message UserInfoResponse {
+  string response = 1;
+}

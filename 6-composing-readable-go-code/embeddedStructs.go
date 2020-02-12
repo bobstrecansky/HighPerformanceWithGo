@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	type Utencils struct {
+	type Utensils struct {
 		fork  string
 		spoon string
 		knife string
@@ -17,14 +17,14 @@ func main() {
 	}
 
 	type Kitchen struct {
-		Utencils
+		Utensils
 		Appliances
 	}
 
 	bobKitchen := new(Kitchen)
-	bobKitchen.Utencils.fork = "3 prong"
-	bobKitchen.Utencils.knife = "dull"
-	bobKitchen.Utencils.spoon = "deep"
+	bobKitchen.Utensils.fork = "3 prong"
+	bobKitchen.Utensils.knife = "dull"
+	bobKitchen.Utensils.spoon = "deep"
 	bobKitchen.Appliances.stove = "6 burner"
 	bobKitchen.Appliances.dishwasher = "3 rack"
 	bobKitchen.Appliances.oven = "self cleaning"

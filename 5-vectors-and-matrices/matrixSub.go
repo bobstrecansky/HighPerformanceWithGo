@@ -11,6 +11,6 @@ func main() {
 	b := mat.NewDense(4, 2, []float64{920, 776, 498, 439, 902, 1023, 663, 843})
 	var c mat.Dense
 	c.Sub(b, a)
-	result := mat.Formatted(&c, mat.Prefix("    "), mat.Squeeze())
-	fmt.Printf("result = %v", result)
+	result := mat.Formatted(&c, mat.Prefix(""), mat.Squeeze())
+	fmt.Println(result)
 }
