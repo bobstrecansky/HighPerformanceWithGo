@@ -19,17 +19,17 @@ func main() {
 
 	connection, err := kafka.DialLeader(context.Background(), connectionType, connectionHost+connectionPort, topic, partition)
 	if err != nil {
-		log.Printf("Could not create a Kafka Connection")
+		log.Fatal("Could not create a Kafka Connection")
 	}
 
-	connection.SetReadDeadline(time.Now().Add(1 * time.Second))
+	connection.SetReadDeadline(time.Now().Add(10 * time.Second))
 	readBatch := connection.ReadBatch(500, 500000)
 
 	byteString := make([]byte, 500)
 	for {
 		_, err := readBatch.Read(byteString)
 		if err != nil {
-			log.Printf("Could not read byteString")
+			break
 		}
 		fmt.Println(string(byteString))
 	}

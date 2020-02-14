@@ -34,6 +34,7 @@ func sleep(ctx context.Context, w http.ResponseWriter, r *http.Request) {
 
 func githubRequest(ctx context.Context, w http.ResponseWriter, r *http.Request) {
 	_, span := trace.StartSpan(ctx, "githubRequest")
+	defer span.End()
 	res, err := http.Get("https://github.com")
 	if err != nil {
 		log.Fatal(err)

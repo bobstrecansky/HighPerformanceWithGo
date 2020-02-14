@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/segmentio/kafka-go"
@@ -15,8 +16,11 @@ func main() {
 	var connectionHost = "0.0.0.0"
 	var connectionPort = ":9092"
 
-	connection, _ := kafka.DialLeader(context.Background(), connectionType, connectionHost+connectionPort, topic, partition)
-	connection.SetWriteDeadline(time.Now().Add(1 * time.Second))
+	connection, err := kafka.DialLeader(context.Background(), connectionType, connectionHost+connectionPort, topic, partition)
+	if err != nil {
+		log.Fatal(err)
+	}
+	connection.SetWriteDeadline(time.Now().Add(10 * time.Second))
 
 	for i := 0; i < 10; i++ {
 		connection.WriteMessages(
