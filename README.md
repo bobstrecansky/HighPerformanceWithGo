@@ -1,2 +1,2 @@
 # HighPerformanceWithGo
-Writing High Performant Golang Programs
+Writing High Performant Go Programs
