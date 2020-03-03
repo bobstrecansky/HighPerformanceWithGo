@@ -1,0 +1,33 @@
+package main
+
+import (
+	"fmt"
+	"net/http"
+	_ "net/http/pprof"
+	"runtime"
+	"time"
+)
+
+func main() {
+
+	for i := 0; i < 10; i++ {
+		leakyAbstraction()
+	}
+	http.HandleFunc("/leak", leakyAbstraction)
+	http.ListenAndServe("localhost:6060", nil)
+}
+
+func leakyAbstraction(w http.ResponseWriter, r *http.Request) string {
+	for i := 0; i < 100; i++ {
+		fmt.Println("Number of Goroutines: ", runtime.NumGoroutine())
+		ch := make(chan string)
+		go func() { ch <- wait() }()
+		go func() { ch <- wait() }()
+		return <-ch
+	}
+}
+
+func wait() string {
+	time.Sleep(5 * time.Microsecond)
+	return "Example String"
+}
