@@ -5,6 +5,5 @@ RUN apt-get install -y golang
 COPY . /tmp
 WORKDIR /tmp
 RUN make
-RUN mv libmultiply.so /usr/lib/libmultiply.so
-ENTRYPOINT ["/usr/bin/go", "run", "cuda_multiply.go"]
-
+RUN mv libmultiply.so /usr/lib/libmultiply.so          
+ENTRYPOINT ["/usr/bin/go", "run", "cuda_multiply.go"]   
