@@ -17,7 +17,6 @@ func main() {
 func leakyAbstraction(w http.ResponseWriter, r *http.Request) {
 	ch := make(chan string, 15)
 	for {
-		//for i := 0; i < 10; i++ {
 		fmt.Fprintln(w, "Number of Goroutines: ", runtime.NumGoroutine())
 		go func() { ch <- wait() }()
 	}
