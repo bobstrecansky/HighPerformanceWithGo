@@ -5,7 +5,9 @@ This is the repository associated with the book "Hands on High Performance in Go
 
 
 This book can be purchased at the following URLs:
+
 [Packt Website (Hardcover and Ebook available)](https://www.packtpub.com/programming/hands-on-high-performance-with-go)
+
 [Amazon (Hardcover and Ebook available)](https://www.amazon.com/Hands-High-Performance-performance-applications/dp/1789805783)
 
 
@@ -25,7 +27,7 @@ Go is an easy-to-write language that is popular among developers thanks to its f
 * Dive into memory management and CPU and GPU parallelism in Go
 
 
-###Features 	
+### Features 	
 
 * Explore Go’s profiling tools to write faster programs by identifying and fixing bottlenecks
 * Address Go-specific performance issues such as memory allocation and garbage collection
