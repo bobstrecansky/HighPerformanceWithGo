@@ -1,6 +1,6 @@
 module github.com/bobstrecansky/HighPerformanceWithGo/6-composing-readable-go-code/goModulesExample
 
-require github.com/gin-gonic/gin v1.7.0
+require github.com/gin-gonic/gin v1.7.7
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
